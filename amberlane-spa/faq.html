@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Amberlane Spa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <section class="page-hero" style="padding:0">
+    <div class="wrap page-copy">
+      <p class="crumb"><a href="index.html">Home</a> / FAQ</p>
+      <p class="kicker">Before you visit</p>
+      <h1>The questions we answer most.</h1>
+    </div>
+    <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b6?auto=format&fit=crop&w=1200&q=80" alt="Spa hallway" />
+  </section>
+  <section>
+    <div class="wrap narrow">
+      <div class="tabs" id="faqTabs">
+        <button class="tab on" data-tab="book">Booking</button>
+        <button class="tab" data-tab="prep">Prepare</button>
+        <button class="tab" data-tab="house">House</button>
+      </div>
+      <div id="book">
+        <article class="feature" style="margin-bottom:14px"><h3>How do I hold a time?</h3><p class="muted">Send a request on the book page. We confirm by email within a few hours on open days. Same-day is sometimes possible after 14:00 cancellations — call the desk.</p></article>
+        <article class="feature" style="margin-bottom:14px"><h3>Cancellation?</h3><p class="muted">24 hours. Inside that window the ritual is charged unless we fill the room. Members: 12 hours.</p></article>
+        <article class="feature"><h3>Gratuity?</h3><p class="muted">Not required. If you wish, the desk can add it. Therapists do not handle cash in the room.</p></article>
+      </div>
+      <div id="prep" class="hidden">
+        <article class="feature" style="margin-bottom:14px"><h3>Should I eat first?</h3><p class="muted">A light meal is fine. Avoid arriving hungry for wraps and the circuit — heat is harder on an empty stomach.</p></article>
+        <article class="feature" style="margin-bottom:14px"><h3>Health notes?</h3><p class="muted">Tell us about pregnancy, recent surgery, blood pressure, and skin conditions on the form. We will adapt or decline kindly if a ritual is wrong that day.</p></article>
+        <article class="feature"><h3>Scent?</h3><p class="muted">Say unscented. We mean it. Shared spaces are already kept quiet of fragrance.</p></article>
+      </div>
+      <div id="house" class="hidden">
+        <article class="feature" style="margin-bottom:14px"><h3>Phones?</h3><p class="muted">They stay at the desk. If you are on call, tell us — we will keep the device at reception and knock only if it cannot wait.</p></article>
+        <article class="feature" style="margin-bottom:14px"><h3>Parking?</h3><p class="muted">Two house spaces behind the lane, first come. Otherwise street. A map arrives with confirmation.</p></article>
+        <article class="feature"><h3>Accessibility?</h3><p class="muted">Ground-floor treatment is available with notice. The thermal circuit has steps. Write us before you book.</p></article>
+      </div>
+    </div>
+  </section>
+  <script src="js/site.js"></script>
+  <script>
+    document.querySelectorAll("#faqTabs .tab").forEach(t => {
+      t.onclick = () => {
+        document.querySelectorAll("#faqTabs .tab").forEach(x => x.classList.toggle("on", x === t));
+        ["book","prep","house"].forEach(k => document.getElementById(k).classList.toggle("hidden", k !== t.dataset.tab));
+      };
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rituals | Amberlane Spa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <section class="page-hero" style="padding:0">
+    <div class="wrap page-copy">
+      <p class="crumb"><a href="index.html">Home</a> / Rituals</p>
+      <p class="kicker">The menu</p>
+      <h1>Six rituals. Time included.</h1>
+    </div>
+    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80" alt="Spa treatment" />
+  </section>
+  <section>
+    <div class="wrap">
+      <p class="sub">Filter by type. Every ritual includes consultation, linens, and 10 minutes of still time after. Add the thermal circuit for $40 when you book.</p>
+      <div class="tabs center-tabs" id="tabs">
+        <button class="tab on" data-filter="all">All</button>
+        <button class="tab" data-filter="massage">Massage</button>
+        <button class="tab" data-filter="facial">Facials</button>
+        <button class="tab" data-filter="body">Body</button>
+      </div>
+      <div class="grid-3" id="grid">
+        <article class="card" data-cat="massage">
+          <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80" alt="Amber Stone massage" />
+          <div class="card-body">
+            <h3>Amber Stone</h3>
+            <p class="mins">90 minutes · Deep tissue with warmed stones</p>
+            <p class="price">$210</p>
+            <a class="btn btn-full" style="margin-top:14px" href="amber-stone.html">Details</a>
+          </div>
+        </article>
+        <article class="card" data-cat="facial">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80" alt="Rose Quartz Facial" />
+          <div class="card-body">
+            <h3>Rose Quartz Facial</h3>
+            <p class="mins">75 minutes · Botanicals & lymphatic work</p>
+            <p class="price">$185</p>
+            <a class="btn btn-full" style="margin-top:14px" href="rose-quartz.html">Details</a>
+          </div>
+        </article>
+        <article class="card" data-cat="body">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80" alt="Mineral Wrap" />
+          <div class="card-body">
+            <h3>Mineral Wrap</h3>
+            <p class="mins">80 minutes · Clay, heat, and hydration</p>
+            <p class="price">$195</p>
+            <a class="btn btn-full" style="margin-top:14px" href="mineral-wrap.html">Details</a>
+          </div>
+        </article>
+        <article class="card" data-cat="massage">
+          <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80" alt="Lane Signature massage" />
+          <div class="card-body">
+            <h3>Lane Signature</h3>
+            <p class="mins">60 minutes · Aromatherapy flow</p>
+            <p class="price">$145</p>
+            <a class="btn btn-full" style="margin-top:14px" href="lane-signature.html">Details</a>
+          </div>
+        </article>
+        <article class="card" data-cat="facial">
+          <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=80" alt="Quiet Glow facial" />
+          <div class="card-body">
+            <h3>Quiet Glow</h3>
+            <p class="mins">50 minutes · Express radiance</p>
+            <p class="price">$120</p>
+            <a class="btn btn-full" style="margin-top:14px" href="quiet-glow.html">Details</a>
+          </div>
+        </article>
+        <article class="card" data-cat="body">
+          <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=900&q=80" alt="Thermal Circuit" />
+          <div class="card-body">
+            <h3>Thermal Circuit</h3>
+            <p class="mins">45 minutes · Heat, cold, rest</p>
+            <p class="price">$95</p>
+            <a class="btn btn-full" style="margin-top:14px" href="thermal-circuit.html">Details</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <script src="js/site.js"></script>
+  <script>
+    function filter(cat) {
+      document.querySelectorAll("#tabs .tab").forEach(t => t.classList.toggle("on", t.dataset.filter === cat));
+      document.querySelectorAll("#grid .card").forEach(c => c.classList.toggle("hidden", cat !== "all" && c.dataset.cat !== cat));
+    }
+    document.querySelectorAll("#tabs .tab").forEach(t => t.onclick = () => filter(t.dataset.filter));
+    const q = new URLSearchParams(location.search).get("cat");
+    if (q) filter(q);
+  </script>
+</body>
+</html>
